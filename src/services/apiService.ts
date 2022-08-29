@@ -10,12 +10,10 @@ apiClient.interceptors.request.use(
     const accessToken = localStorage.getItem('access_token');
 
     if (accessToken) {
-      config.headers.common.Authorization = `${accessToken}`;
+      config.headers.common.token = `${accessToken}`;
     }
-
     config.headers.common['Content-Type'] = 'application/json';
     config.headers.common['Accept'] = 'application/json';
-
     return config;
   },
   error => {
